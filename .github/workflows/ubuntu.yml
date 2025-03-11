@@ -22,7 +22,7 @@ jobs:
         cmake -H. -Bbuild -DCMAKE_BUILD_TYPE=Debug -DENABLE_COVERAGE=On
     - name: building and testing
       run: |
-        cmake --build build --config Debug --target coverage -j4 --gcov-ignore-errors=no_working_dir_found
+        cmake --build build --config Debug --target coverage -j4
         cd build
         ctest .
     - name: List build directory contents
