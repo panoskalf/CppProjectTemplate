@@ -99,6 +99,7 @@ elseif(USE_CONAN OR USE_VCPKG)
         list(APPEND CMAKE_MODULE_PATH ${Catch2_SOURCE_DIR}/extras)
     endif()
 else()
+    include(FetchContent)
     message(STATUS "Using FetchContent")
     FetchContent_Declare(
         nlohmann_json
