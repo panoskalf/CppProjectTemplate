@@ -30,7 +30,7 @@ jobs:
         ls -R build
     - name: Code Coverage Report
       run: |
-        gcovr -r . --exclude '.*_deps.*' --html --html-details -o build/coverage/coverage.html --gcov-ignore-errors=all
+        gcovr -r . --exclude '.*_deps.*' --html --html-details -o build/coverage/coverage.html --gcov-ignore-errors=all --gcov-ignore-errors=no_working_dir_found --verbose
     - name: Upload Coverage Report
       uses: actions/upload-artifact@v4
       with:
