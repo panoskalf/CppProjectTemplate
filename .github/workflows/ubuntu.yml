@@ -32,7 +32,7 @@ jobs:
       run: |
         gcovr -r . --exclude '.*_deps.*' --html --html-details -o build/coverage/coverage.html --gcov-ignore-errors=all
     - name: Upload Coverage Report
-      uses: actions/upload-artifact@v2
+      uses: actions/upload-artifact@v4
       with:
         name: coverage-report
         path: build/coverage/coverage.html
