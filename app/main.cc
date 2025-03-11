@@ -27,11 +27,11 @@ int main(int argc, char **argv)
     std::cout << "\n\nUsage Example:\n";
 
     // Compiler Warning and clang tidy error
-    // std::int32_t i = 0;
+    std::int32_t i = 0;
 
     // Adress Sanitizer should see this
-    // char x[10];
-    // x[11] = 1;
+    char x[10];
+    x[11] = 1;
 
     const auto welcome_message =
         fmt::format("Welcome to {} v{}\n", project_name, project_version);
