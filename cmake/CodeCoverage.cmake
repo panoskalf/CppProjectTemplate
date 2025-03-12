@@ -135,7 +135,7 @@ function(setup_target_for_coverage_gcovr_html)
         --json-summary
         --json-summary-pretty
         --html-theme
-        github.dark-green)
+        green)
     set(GCOVR_HTML_CMD
         ${GCOVR_PATH}
         ${GCOVR_EXTRA_FLAGS}
@@ -149,6 +149,7 @@ function(setup_target_for_coverage_gcovr_html)
         ${Coverage_NAME}/coverage.cobertura.xml
         --cobertura-pretty
         --decisions
+        --gcov-ignore-errors=no_working_dir_found
         -r
         ${BASEDIR}
         ${GCOVR_ADDITIONAL_ARGS}
