@@ -25,20 +25,21 @@ jobs:
         cmake --build build --config Debug --target coverage -j4
         cd build
         ctest .
-    - name: List build directory contents
-      run: |
-        ls -R build
     - name: Code Coverage Report
-      run: |
-        gcovr -r . --exclude '.*_deps.*' --html --html-details -o build/coverage/coverage.html --gcov-ignore-errors=all --gcov-ignore-errors=no_working_dir_found --verbose
-    - name: Upload Coverage Report
-      uses: actions/upload-artifact@v4
+      uses: irongut/CodeCoverageSummary@v1.3.0
       with:
-        name: coverage-report
-        path: build/coverage/coverage.html
+        filename: build/coverage/coverage.cobertura.xml
+        badge: true
+        fail_below_min: true
+        format: markdown
+        hide_branch_rate: false
+        hide_complexity: true
+        indicators: true
+        output: both
+        thresholds: '60 80'
     - name: Add Coverage PR Comment
       uses: marocchino/sticky-pull-request-comment@v2
       if: github.event_name == 'pull_request'
       with:
         recreate: true
-        path: build/coverage/coverage.html
+        path: code-coverage-results.md

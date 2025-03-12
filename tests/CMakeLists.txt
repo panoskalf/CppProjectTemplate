@@ -38,7 +38,7 @@ if(ENABLE_COVERAGE)
         "${PROJECT_SOURCE_DIR}/tests/*"
         "${PROJECT_SOURCE_DIR}/build/*"
         "/usr/include/*")
-    set(COVERAGE_EXTRA_FLAGS "--gcov-ignore-errors=no_working_dir_found")
+    set(COVERAGE_EXTRA_FLAGS)
     set(COVERAGE_DEPENDENCIES "UnitTestFoo" "UnitTestBar")
 
     setup_target_for_coverage_gcovr_html(
@@ -49,9 +49,5 @@ if(ENABLE_COVERAGE)
         DEPENDENCIES
         ${COVERAGE_DEPENDENCIES}
         BASE_DIRECTORY
-        ${CMAKE_SOURCE_DIR}
-        EXCLUDE
-        ${COVERAGE_EXCLUDES}
-        EXTRA_FLAGS
-        ${COVERAGE_EXTRA_FLAGS})
+        ${CMAKE_SOURCE_DIR})
 endif()
